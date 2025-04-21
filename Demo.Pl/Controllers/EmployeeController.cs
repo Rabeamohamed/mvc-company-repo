@@ -133,7 +133,7 @@ namespace Demo.Pl.Controllers
                 {
                     try
                     {
-                    if (employeeVm.ImageName is not null)
+                    if (employeeVm.Image is not null)
                     {
                         employeeVm.ImageName = DocumentSettings.UploadFile(employeeVm.Image, "Images");
                     }

@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using AutoMapper;
 using Demo.BLL.Interfaces;
 using Demo.BLL.Repositrories;
 using Demo.DAL.Contexts;
@@ -38,7 +39,9 @@ namespace Demo.Pl
             });
 
             services.AddScoped<IDepartmentRepository, DepartmentRepository>();
-            services.AddAutoMapper(M => M.AddProfile(new EmployeeProfile()));
+            services.AddAutoMapper(M => M.AddProfiles(new List<Profile>() { new EmployeeProfile() , new UserProfile(), new RoleProfile()}));
+
+
             services.AddScoped<IUnitOfWork, UnitOfWork>();
 
             services.AddIdentity<ApplicationUser, IdentityRole>(Options=>
